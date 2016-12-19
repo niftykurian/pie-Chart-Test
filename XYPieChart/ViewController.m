@@ -183,13 +183,13 @@ int selectedIndex;
     // index path variable. If the two match, return a height of 100 points, otherwise return
     // a height of 44 points.
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
-        return 100.0; // Expanded height
+        return 200.0; // Expanded height
     }
     return 44.0; // Normal height
 }
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
-    
+   
     data *entry=[tableData objectAtIndex:index];
     NSLog(@"did select slice at index %d",index);
     a = index;
