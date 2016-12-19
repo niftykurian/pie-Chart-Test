@@ -14,9 +14,13 @@
     NSArray *tableData;
 }
 @property (strong, nonatomic) NSMutableArray *expandedCells;
+
+@property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 - (IBAction)back:(id)sender;
-@property (weak, nonatomic) IBOutlet UIView *cellInside;
-@property (weak, nonatomic) IBOutlet UILabel *cellInsideText;
+
+@property (weak, nonatomic) IBOutlet UILabel *label2;
+@property (weak, nonatomic) IBOutlet UIView *insideCellView;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *viewDescription;
 

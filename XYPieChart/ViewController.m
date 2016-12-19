@@ -11,9 +11,13 @@
 #import "data.h"
 
 @implementation ViewController
+{
+    NSInteger *b;
+}
 
 @synthesize pieChartRight = _pieChart;
 int a;
+int c=50;
 int selectedIndex;
 
 @synthesize selectedSliceLabel = _selectedSlice;
@@ -31,7 +35,7 @@ int selectedIndex;
 
 - (void)viewDidLoad
 {
-    _cellInside.hidden=YES;
+   
     _popView.hidden=YES;
     data *first=[[data alloc] init];
     first.title=@"DBL";
@@ -126,18 +130,7 @@ int selectedIndex;
 }
 
 #pragma mark - XYPieChart Delegate
-- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
-{
-    
-    data *entry=[tableData objectAtIndex:index];
-    NSLog(@"did select slice at index %d",index);
-    a = index;
-    _viewTitle.text=entry.title;
-    _viewDescription.text=entry.titledata;
 
-    _popView.hidden=NO;
-    self.selectedSliceLabel.text =entry.title;
-    }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -146,6 +139,10 @@ int selectedIndex;
 {
     return [tableData count];
 }
+
+
+
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -161,39 +158,47 @@ int selectedIndex;
     data *da=[tableData objectAtIndex:indexPath.row];
     _cellLabel = (UILabel *)[cell viewWithTag:10];
     _cellLabel.text=da.title;
+    _label2.text=da.titledata;
     return cell;
-}
-
-
-- (IBAction)back:(id)sender {
-    _popView.hidden=YES;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView beginUpdates]; // tell the table you're about to start making changes
     
-    if ([self.expandedCells containsObject:indexPath])
-    {
-        [self.expandedCells removeObject:indexPath];
+    // If the index path of the currently expanded cell is the same as the index that
+    // has just been tapped set the expanded index to nil so that there aren't any
+    // expanded cells, otherwise, set the expanded index to the index that has just
+    // been selected.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        self.expandedIndexPath = nil;
+    } else {
+        self.expandedIndexPath = indexPath;
     }
-    else
-    {
-        [self.expandedCells addObject:indexPath];
-    }
-    [tableView beginUpdates];
-    [tableView endUpdates];
+    
+    [tableView endUpdates]; // tell the table you're done making your changes
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat kExpandedCellHeight = 150;
-    CGFloat kNormalCellHeigh = 50;
-    
-    if ([self.expandedCells containsObject:indexPath])
-    {
-        return kExpandedCellHeight; //It's not necessary a constant, though
+    // Compares the index path for the current cell to the index path stored in the expanded
+    // index path variable. If the two match, return a height of 100 points, otherwise return
+    // a height of 44 points.
+    if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+        return 100.0; // Expanded height
     }
-    else
-    {
-        return kNormalCellHeigh; //Again not necessary a constant
-    }
+    return 44.0; // Normal height
 }
+- (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
+{
+    
+    data *entry=[tableData objectAtIndex:index];
+    NSLog(@"did select slice at index %d",index);
+    a = index;
+    _viewTitle.text=entry.title;
+    _viewDescription.text=entry.titledata;
+    
+    _popView.hidden=NO;
+    self.selectedSliceLabel.text =entry.title;
+    
+}
+
 @end
