@@ -32,14 +32,14 @@ int a;
 {
     _popView.hidden=YES;
     data *first=[[data alloc] init];
-    first.title=@"Dbl";
-    first.titledata=@" dbl is the banking section";
+    first.title=@"DBL";
+    first.titledata=@" dbl is the banking section of MobMe";
     data *second=[[data alloc]init];
-    second.title=@"geckolyte";
-    second.titledata=@"it is the big data section";
+    second.title=@"GECKOLYST";
+    second.titledata=@"it is the big data section of MobMe";
     data *third=[[data alloc]init];
-    third.title=@"enterprise";
-    third.titledata=@"it manages the enterprise";
+    third.title=@"ENTERPRISE";
+    third.titledata=@"it manages the enterprise section of MobMe";
     tableData = @[first,second,third];
     [super viewDidLoad];
     
@@ -124,40 +124,16 @@ int a;
 }
 
 #pragma mark - XYPieChart Delegate
-- (void)pieChart:(XYPieChart *)pieChart willSelectSliceAtIndex:(NSUInteger)index
-{
-    NSLog(@"will select slice at index %d",index);
-}
-- (void)pieChart:(XYPieChart *)pieChart willDeselectSliceAtIndex:(NSUInteger)index
-{
-    NSLog(@"will deselect slice at index %d",index);
-}
-- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index
-{
-    NSLog(@"did deselect slice at index %d",index);
-}
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
+    data *entry=[tableData objectAtIndex:index];
     NSLog(@"did select slice at index %d",index);
     a = index;
-    data *db=[tableData objectAtIndex:index];
+    _viewTitle.text=entry.title;
+    _viewDescription.text=entry.titledata;
+
     _popView.hidden=NO;
-    if(index==0)
-    {
-        _viewTitle.text=@"DBL";
-        _viewDescription.text=@"DBL is the banking section of MobME";
-    }
-    else if(index==1)
-    {
-        _viewTitle.text=@"Geckolyst";
-        _viewDescription.text=@"Geckolyst handles the big data";
-    }
-    else if(index==2)
-    {
-        _viewTitle.text=@"Enterprise";
-        _viewDescription.text=@"It handles the enterprise section";
-    }
-    self.selectedSliceLabel.text =db.title;
+    self.selectedSliceLabel.text =entry.title;
     }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -183,6 +159,5 @@ int a;
     _cellLabel.text=da.title;
     return cell;
 }
-
 
 @end
