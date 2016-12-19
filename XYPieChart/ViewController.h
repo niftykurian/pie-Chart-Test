@@ -13,6 +13,10 @@
 {
     NSArray *tableData;
 }
+@property (strong, nonatomic) NSMutableArray *expandedCells;
+- (IBAction)back:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *cellInside;
+@property (weak, nonatomic) IBOutlet UILabel *cellInsideText;
 
 @property (weak, nonatomic) IBOutlet UILabel *viewDescription;
 

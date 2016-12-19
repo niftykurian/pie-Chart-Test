@@ -14,6 +14,7 @@
 
 @synthesize pieChartRight = _pieChart;
 int a;
+int selectedIndex;
 
 @synthesize selectedSliceLabel = _selectedSlice;
 
@@ -30,6 +31,7 @@ int a;
 
 - (void)viewDidLoad
 {
+    _cellInside.hidden=YES;
     _popView.hidden=YES;
     data *first=[[data alloc] init];
     first.title=@"DBL";
@@ -126,6 +128,7 @@ int a;
 #pragma mark - XYPieChart Delegate
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
+    
     data *entry=[tableData objectAtIndex:index];
     NSLog(@"did select slice at index %d",index);
     a = index;
@@ -145,6 +148,7 @@ int a;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *cellIdentifier=@"Identifier";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(cell==nil){
@@ -160,4 +164,36 @@ int a;
     return cell;
 }
 
+
+- (IBAction)back:(id)sender {
+    _popView.hidden=YES;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if ([self.expandedCells containsObject:indexPath])
+    {
+        [self.expandedCells removeObject:indexPath];
+    }
+    else
+    {
+        [self.expandedCells addObject:indexPath];
+    }
+    [tableView beginUpdates];
+    [tableView endUpdates];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat kExpandedCellHeight = 150;
+    CGFloat kNormalCellHeigh = 50;
+    
+    if ([self.expandedCells containsObject:indexPath])
+    {
+        return kExpandedCellHeight; //It's not necessary a constant, though
+    }
+    else
+    {
+        return kNormalCellHeigh; //Again not necessary a constant
+    }
+}
 @end
