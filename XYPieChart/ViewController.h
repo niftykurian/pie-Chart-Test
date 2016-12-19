@@ -14,6 +14,10 @@
     NSArray *tableData;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *viewDescription;
+
+@property (weak, nonatomic) IBOutlet UIView *popView;
+@property (weak, nonatomic) IBOutlet UILabel *viewTitle;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellView;
 @property (weak, nonatomic) IBOutlet UILabel *cellLabel;

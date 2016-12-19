@@ -12,8 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
                 <outlet property="pieChartRight" destination="4" id="46"/>
+                <outlet property="popView" destination="1tZ-6U-9qU" id="Ozw-b1-ay8"/>
                 <outlet property="selectedSliceLabel" destination="40" id="42"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="viewDescription" destination="uwY-dj-kNK" id="3s0-YG-zfa"/>
+                <outlet property="viewTitle" destination="st1-m3-R3N" id="mUN-Ds-vm8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -41,8 +44,29 @@
                                 <outlet property="delegate" destination="-1" id="U7y-np-l9q"/>
                             </connections>
                         </tableView>
+                        <view contentMode="scaleToFill" misplaced="YES" id="1tZ-6U-9qU">
+                            <rect key="frame" x="24" y="8" width="488" height="642"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="st1-m3-R3N">
+                                    <rect key="frame" x="45" y="63" width="381" height="53"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="49"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uwY-dj-kNK">
+                                    <rect key="frame" x="45" y="142" width="381" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="$0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="40">
-                            <rect key="frame" x="462" y="567" width="100" height="60"/>
+                            <rect key="frame" x="646" y="567" width="100" height="60"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="56"/>
                             <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,6 +83,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-85" y="102"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

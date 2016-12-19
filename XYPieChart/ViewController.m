@@ -30,7 +30,7 @@ int a;
 
 - (void)viewDidLoad
 {
-    
+    _popView.hidden=YES;
     data *first=[[data alloc] init];
     first.title=@"Dbl";
     first.titledata=@" dbl is the banking section";
@@ -45,7 +45,7 @@ int a;
     
     
     
-   _slices=[NSArray arrayWithObjects:@25,@30,@45, nil];
+   _slices=[NSArray arrayWithObjects:@40,@35,@25, nil];
     
 
     [self.pieChartRight setDelegate:self];
@@ -141,9 +141,24 @@ int a;
     NSLog(@"did select slice at index %d",index);
     a = index;
     data *db=[tableData objectAtIndex:index];
-    
+    _popView.hidden=NO;
+    if(index==0)
+    {
+        _viewTitle.text=@"DBL";
+        _viewDescription.text=@"DBL is the banking section of MobME";
+    }
+    else if(index==1)
+    {
+        _viewTitle.text=@"Geckolyst";
+        _viewDescription.text=@"Geckolyst handles the big data";
+    }
+    else if(index==2)
+    {
+        _viewTitle.text=@"Enterprise";
+        _viewDescription.text=@"It handles the enterprise section";
+    }
     self.selectedSliceLabel.text =db.title;
-}
+    }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -168,5 +183,6 @@ int a;
     _cellLabel.text=da.title;
     return cell;
 }
-int b;
+
+
 @end
