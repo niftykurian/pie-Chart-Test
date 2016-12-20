@@ -203,14 +203,14 @@ int selectedIndex;
 
    
 
-//    data *entry=[tableData objectAtIndex:index];
+    data *entry=[tableData objectAtIndex:index];
 //    NSLog(@"did select slice at index %d",index);
 //    a =index;
 //    NSLog (@"did select table at %@", indexPatha);
-//    _viewTitle.text=entry.title;
-//    _viewDescription.text=entry.titledata;
-//    self.selectedSliceLabel.text =entry.title;
-//   
+    _viewTitle.text=entry.title;
+    _viewDescription.text=entry.titledata;
+    self.selectedSliceLabel.text =entry.title;
+
     NSIndexPath *indexPatha = [NSIndexPath indexPathForRow:index inSection:0];
 
     [_myTable selectRowAtIndexPath:indexPatha
