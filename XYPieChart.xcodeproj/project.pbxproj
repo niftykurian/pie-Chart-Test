@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2424BF2C1607437C0000B539 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2424BF2B1607437C0000B539 /* XYPieChart.m */; };
 		8768825C1501D2A60097BE69 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8768825B1501D2A60097BE69 /* icon.png */; };
 		87FEAA1C14F84E3000ED38A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAA1B14F84E3000ED38A2 /* UIKit.framework */; };
 		87FEAA1E14F84E3000ED38A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAA1D14F84E3000ED38A2 /* Foundation.framework */; };
@@ -18,14 +17,12 @@
 		87FEAA2F14F84E3100ED38A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87FEAA2E14F84E3100ED38A2 /* ViewController.m */; };
 		87FEAA3214F84E3100ED38A2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87FEAA3014F84E3100ED38A2 /* ViewController.xib */; };
 		87FEAA3C14FAC66D00ED38A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87FEAA3B14FAC66D00ED38A2 /* QuartzCore.framework */; };
-		8F96E0761E07F7D90008D242 /* detail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F96E0751E07F7D90008D242 /* detail.xib */; };
+		8F4A39A91E0912A5001CAD23 /* XYPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F4A39A81E0912A5001CAD23 /* XYPieChart.m */; };
 		8FDA5E9A1E07BD390031BBD5 /* data.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FDA5E991E07BD390031BBD5 /* data.m */; };
 		8FDA5E9C1E07C0290031BBD5 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FDA5E9B1E07C0290031BBD5 /* View.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2424BF2A1607437C0000B539 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XYPieChart.h; path = ../../XYPieChart/XYPieChart.h; sourceTree = "<group>"; };
-		2424BF2B1607437C0000B539 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XYPieChart.m; path = ../../XYPieChart/XYPieChart.m; sourceTree = "<group>"; };
 		8768825B1501D2A60097BE69 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		87FEAA1714F84E3000ED38A2 /* XYPieChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYPieChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87FEAA1B14F84E3000ED38A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -41,7 +38,8 @@
 		87FEAA2E14F84E3100ED38A2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		87FEAA3114F84E3100ED38A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		87FEAA3B14FAC66D00ED38A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8F96E0751E07F7D90008D242 /* detail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detail.xib; sourceTree = "<group>"; };
+		8F4A39A71E0912A5001CAD23 /* XYPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPieChart.h; sourceTree = "<group>"; };
+		8F4A39A81E0912A5001CAD23 /* XYPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPieChart.m; sourceTree = "<group>"; };
 		8FDA5E981E07BD390031BBD5 /* data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = "<group>"; };
 		8FDA5E991E07BD390031BBD5 /* data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = data.m; sourceTree = "<group>"; };
 		8FDA5E9B1E07C0290031BBD5 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
@@ -94,12 +92,11 @@
 		87FEAA2114F84E3000ED38A2 /* XYPieChart */ = {
 			isa = PBXGroup;
 			children = (
-				2424BF2A1607437C0000B539 /* XYPieChart.h */,
-				2424BF2B1607437C0000B539 /* XYPieChart.m */,
+				8F4A39A71E0912A5001CAD23 /* XYPieChart.h */,
+				8F4A39A81E0912A5001CAD23 /* XYPieChart.m */,
 				87FEAA2D14F84E3100ED38A2 /* ViewController.h */,
 				87FEAA2E14F84E3100ED38A2 /* ViewController.m */,
 				87FEAA3014F84E3100ED38A2 /* ViewController.xib */,
-				8F96E0751E07F7D90008D242 /* detail.xib */,
 				8FDA5E9B1E07C0290031BBD5 /* View.xib */,
 				8FDA5E981E07BD390031BBD5 /* data.h */,
 				8FDA5E991E07BD390031BBD5 /* data.m */,
@@ -174,7 +171,6 @@
 			files = (
 				8FDA5E9C1E07C0290031BBD5 /* View.xib in Resources */,
 				87FEAA2614F84E3100ED38A2 /* InfoPlist.strings in Resources */,
-				8F96E0761E07F7D90008D242 /* detail.xib in Resources */,
 				87FEAA3214F84E3100ED38A2 /* ViewController.xib in Resources */,
 				8768825C1501D2A60097BE69 /* icon.png in Resources */,
 			);
@@ -190,8 +186,8 @@
 				8FDA5E9A1E07BD390031BBD5 /* data.m in Sources */,
 				87FEAA2814F84E3100ED38A2 /* main.m in Sources */,
 				87FEAA2C14F84E3100ED38A2 /* AppDelegate.m in Sources */,
+				8F4A39A91E0912A5001CAD23 /* XYPieChart.m in Sources */,
 				87FEAA2F14F84E3100ED38A2 /* ViewController.m in Sources */,
-				2424BF2C1607437C0000B539 /* XYPieChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

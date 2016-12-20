@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="myTable" destination="OYu-gS-uoa" id="tIo-OD-LcB"/>
                 <outlet property="pieChartRight" destination="4" id="46"/>
                 <outlet property="popView" destination="1tZ-6U-9qU" id="Ozw-b1-ay8"/>
                 <outlet property="selectedSliceLabel" destination="40" id="42"/>

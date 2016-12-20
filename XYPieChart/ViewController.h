@@ -13,7 +13,7 @@
 {
     NSArray *tableData;
 }
-@property (strong, nonatomic) NSMutableArray *expandedCells;
+//@property (strong, nonatomic) NSMutableArray *expandedCells;
 
 @property (strong, nonatomic) NSIndexPath *expandedIndexPath;
 - (IBAction)back:(id)sender;
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UIView *insideCellView;
 
+@property (weak, nonatomic) IBOutlet UITableView *myTable;
 
 @property (weak, nonatomic) IBOutlet UILabel *viewDescription;
 
@@ -35,4 +36,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *selectedSliceLabel;
 @property(nonatomic, strong) NSArray *slices;
 @property(nonatomic, strong) NSArray        *sliceColors;
+
 @end

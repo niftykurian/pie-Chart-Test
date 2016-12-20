@@ -12,11 +12,16 @@
 
 @implementation ViewController
 {
-    NSInteger *b;
+    UITableView *newTable;
+    NSIndexPath *newIndex;
+ 
+    
+    NSUInteger *a;
 }
 
 @synthesize pieChartRight = _pieChart;
-int a;
+int flag;
+int b=0;
 int c=50;
 int selectedIndex;
 
@@ -163,17 +168,18 @@ int selectedIndex;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   NSIndexPath *p = [NSIndexPath indexPathWithIndex:a];
+    NSLog(@"the yoyo is %@",p);
+    p=indexPath;
+ NSLog(@"the zozo is %ld",(long)indexPath);
     [tableView beginUpdates]; // tell the table you're about to start making changes
     
-    // If the index path of the currently expanded cell is the same as the index that
-    // has just been tapped set the expanded index to nil so that there aren't any
-    // expanded cells, otherwise, set the expanded index to the index that has just
-    // been selected.
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
-        self.expandedIndexPath = nil;
+       self.expandedIndexPath = nil;
     } else {
-        self.expandedIndexPath = indexPath;
-    }
+       self.expandedIndexPath = indexPath;
+   }
+   
     
     [tableView endUpdates]; // tell the table you're done making your changes
 }
@@ -183,22 +189,37 @@ int selectedIndex;
     // index path variable. If the two match, return a height of 100 points, otherwise return
     // a height of 44 points.
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
+
         return 200.0; // Expanded height
     }
     return 44.0; // Normal height
 }
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
+
+// [self tableView:newTable didSelectRowAtIndexPath:newIndex];
+    
+    [_myTable reloadData];
+
    
-    data *entry=[tableData objectAtIndex:index];
-    NSLog(@"did select slice at index %d",index);
-    a = index;
-    _viewTitle.text=entry.title;
-    _viewDescription.text=entry.titledata;
+
+//    data *entry=[tableData objectAtIndex:index];
+//    NSLog(@"did select slice at index %d",index);
+//    a =index;
+//    NSLog (@"did select table at %@", indexPatha);
+//    _viewTitle.text=entry.title;
+//    _viewDescription.text=entry.titledata;
+//    self.selectedSliceLabel.text =entry.title;
+//   
+    NSIndexPath *indexPatha = [NSIndexPath indexPathForRow:index inSection:0];
+
+    [_myTable selectRowAtIndexPath:indexPatha
+                               animated:NO
+                         scrollPosition:UITableViewScrollPositionNone];
     
-    _popView.hidden=NO;
-    self.selectedSliceLabel.text =entry.title;
-    
+    // This will also Highlighted the row. Then delegate
+   [_myTable.delegate tableView:newTable didSelectRowAtIndexPath:indexPatha];
+//    NSLog(@"table is %@",indexPatha);
 }
 
 @end
