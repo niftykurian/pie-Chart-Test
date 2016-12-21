@@ -20,7 +20,7 @@
 }
 
 @synthesize pieChartRight = _pieChart;
-int flag=0;
+BOOL flag=0;
 int b=0;
 int c=50;
 int selectedIndex;
@@ -170,15 +170,18 @@ int selectedIndex;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XYPieChart *xy;
+    
+   
+    XYPieChart *xy = [[XYPieChart alloc]init];
     [xy setSliceSelectedAtIndex:indexPath];
-    [xy.delegate pieChart:_pieChart willSelectSliceAtIndex:indexPath.row];
-    [xy.delegate pieChart:_pieChart didSelectSliceAtIndex:indexPath.row];
-    flag=2;
+    
+//    [xy.delegate pieChart:_pieChart willSelectSliceAtIndex:indexPath.row];
+//    [xy.delegate pieChart:_pieChart didSelectSliceAtIndex:indexPath.row];
+    flag=1;
     NSIndexPath *p = [NSIndexPath indexPathWithIndex:a];
-    NSLog(@"the yoyo is %@",p);
+    
     p=indexPath;
-    NSLog(@"the zozo is %ld",(long)indexPath);
+
     [tableView beginUpdates]; // tell the table you're about to start making changes
     
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
@@ -187,7 +190,10 @@ int selectedIndex;
     else{
         self.expandedIndexPath = indexPath;
         }
-        [tableView endUpdates]; // tell the table you're done making your changes
+        [tableView endUpdates];
+    CGRect frame = [tableView rectForRowAtIndexPath:indexPath];
+    NSLog(@"row height : %f", frame.size.height);
+// tell the table you're done making your changes
     
 }
 
@@ -195,7 +201,7 @@ int selectedIndex;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+ 
     if(flag==1 || flag==2)
     {
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
@@ -212,12 +218,10 @@ int selectedIndex;
 - (void)pieChart:(XYPieChart *)pieChart didSelectSliceAtIndex:(NSUInteger)index
 {
 [_myTable reloadData];
-    
 
     flag=1;
     data *entry=[tableData objectAtIndex:index];
-    NSLog(@"did select slice at index %d",index);
-    _viewTitle.text=entry.title;
+        _viewTitle.text=entry.title;
     _viewDescription.text=entry.titledata;
     self.selectedSliceLabel.text =entry.title;
 
@@ -227,20 +231,26 @@ int selectedIndex;
                                animated:NO
                          scrollPosition:UITableViewScrollPositionNone];
     
-    // This will also Highlighted the row. Then delegate
-    
+    // This will also Highlighted the row. Then delegate;
     [_myTable.delegate tableView:newTable didSelectRowAtIndexPath:indexPatha];
-    NSLog(@"table is %@",indexPatha);
-    
     
 }
 #pragma mark didDeselectSliceAtIndex
 //for detecting deselection of slices
 
-- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
+- (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index
 {
     flag=0;
     [_myTable reloadData];
+    NSIndexPath *indexPatha = [NSIndexPath indexPathForRow:index inSection:0];
+    
+    [_myTable selectRowAtIndexPath:indexPatha
+                          animated:NO
+                    scrollPosition:UITableViewScrollPositionNone];
+    
+    // This will also Highlighted the row. Then delegate;
+    [_myTable.delegate tableView:newTable didSelectRowAtIndexPath:indexPatha];
+    
 }
 
 
