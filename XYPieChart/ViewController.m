@@ -234,7 +234,7 @@ int selectedIndex;
     
     
 }
-
+#pragma mark didDeselectSliceAtIndex
 //for detecting deselection of slices
 
 - (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index;
