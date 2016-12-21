@@ -170,6 +170,11 @@ int selectedIndex;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    XYPieChart *xy;
+    [xy setSliceSelectedAtIndex:indexPath];
+    [xy.delegate pieChart:_pieChart willSelectSliceAtIndex:indexPath.row];
+    [xy.delegate pieChart:_pieChart didSelectSliceAtIndex:indexPath.row];
+    flag=2;
     NSIndexPath *p = [NSIndexPath indexPathWithIndex:a];
     NSLog(@"the yoyo is %@",p);
     p=indexPath;
@@ -191,7 +196,7 @@ int selectedIndex;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if(flag==1)
+    if(flag==1 || flag==2)
     {
     if ([indexPath compare:self.expandedIndexPath] == NSOrderedSame) {
     
