@@ -36,5 +36,4 @@
 @property (strong, nonatomic) IBOutlet UILabel *selectedSliceLabel;
 @property(nonatomic, strong) NSArray *slices;
 @property(nonatomic, strong) NSArray        *sliceColors;
-
 @end

@@ -16,13 +16,13 @@
     NSIndexPath *newIndex;
  
     
-    NSUInteger *a;
+    NSUInteger *a ;
 }
 
 @synthesize pieChartRight = _pieChart;
 BOOL flag=0;
 int b=0;
-int c=50;
+int c=-1;
 int selectedIndex;
 
 @synthesize selectedSliceLabel = _selectedSlice;
@@ -170,13 +170,16 @@ int selectedIndex;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  
     
-   
     XYPieChart *xy = [[XYPieChart alloc]init];
-    [xy setSliceSelectedAtIndex:indexPath];
-    
+      
 //    [xy.delegate pieChart:_pieChart willSelectSliceAtIndex:indexPath.row];
-//    [xy.delegate pieChart:_pieChart didSelectSliceAtIndex:indexPath.row];
+  //  [xy.delegate pieChart:_pieChart didSelectSliceAtIndex:indexPath.row];
+   
+    [xy notifyDelegateOfSelectionChangeFrom:c to:indexPath.row];
+    
+    c=indexPath.row;
     flag=1;
     NSIndexPath *p = [NSIndexPath indexPathWithIndex:a];
     
@@ -192,7 +195,7 @@ int selectedIndex;
         }
         [tableView endUpdates];
     CGRect frame = [tableView rectForRowAtIndexPath:indexPath];
-    NSLog(@"row height : %f", frame.size.height);
+//    NSLog(@"row height : %f", frame.size.height);
 // tell the table you're done making your changes
     
 }
@@ -240,6 +243,7 @@ int selectedIndex;
 
 - (void)pieChart:(XYPieChart *)pieChart didDeselectSliceAtIndex:(NSUInteger)index
 {
+    c=index;
     flag=0;
     [_myTable reloadData];
     NSIndexPath *indexPatha = [NSIndexPath indexPathForRow:index inSection:0];
@@ -252,6 +256,11 @@ int selectedIndex;
     [_myTable.delegate tableView:newTable didSelectRowAtIndexPath:indexPatha];
     
 }
+- (void)setSliceSelectedAtIndex:(NSInteger)index
+{
+    a = index;
+}
+
 
 
 @end

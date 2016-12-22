@@ -85,7 +85,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.89999997615814209" green="0.89999997615814209" blue="0.89999997615814209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" id="4" customClass="XYPieChart">
+                <view multipleTouchEnabled="YES" contentMode="scaleToFill" id="4" customClass="XYPieChart">
                     <rect key="frame" x="528" y="90" width="480" height="510"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

@@ -68,6 +68,6 @@
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index;
 - (void)setSliceDeselectedAtIndex:(NSInteger)index;
-
+- (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection;
 
 @end;

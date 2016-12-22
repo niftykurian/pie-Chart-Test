@@ -97,10 +97,14 @@
     NSInteger _selectedSliceIndex;
     //pie view, contains all slices
     UIView  *_pieView;
-    
+    NSUInteger *a;
+    int b;
+    int d;
+    NSUInteger c;
     //animation control
     NSTimer *_animationTimer;
     NSMutableArray *_animations;
+    int flag;
 }
 
 static NSUInteger kDefaultSliceZOrder = 100;
@@ -543,6 +547,13 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)notifyDelegateOfSelectionChangeFrom:(NSUInteger)previousSelection to:(NSUInteger)newSelection
 {
+    
+    a=newSelection;
+    b=a;
+    c=previousSelection;
+    d=c;
+    NSLog(@"the new is %d",b);
+    NSLog(@"the old is %d",d);
     if (previousSelection != newSelection){
         if(previousSelection != -1){
             NSUInteger tempPre = previousSelection;
@@ -587,6 +598,8 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
 
 - (void)setSliceSelectedAtIndex:(NSInteger)index
 {
+    
+    NSLog(@"ye index is %ld",(long)index);
     if(_selectedSliceOffsetRadius <= 0)
         return;
     SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
@@ -597,18 +610,20 @@ static CGPathRef CGPathCreateArc(CGPoint center, CGFloat radius, CGFloat startAn
         layer.position = newPos;
         layer.isSelected = YES;
     }
-}
+    }
 
 - (void)setSliceDeselectedAtIndex:(NSInteger)index
 {
-    if(_selectedSliceOffsetRadius <= 0)
-        return;
+    
+    NSLog(@"the deselected index is %ld",(long)index);
+//    if(_selectedSliceOffsetRadius <= 0)
+//        return;
     SliceLayer *layer = [_pieView.layer.sublayers objectAtIndex:index];
-    if (layer && layer.isSelected) {
+  
         layer.position = CGPointMake(0, 0);
         layer.isSelected = NO;
     }
-}
+
 
 #pragma mark - Pie Layer Creation Method
 
